@@ -5,11 +5,13 @@ import './App.css'
 // components
 import { MovieRow } from './components/MovieRow/MovieRow'
 import { FeaturedMovie } from './components/FeaturedMovie/FeaturedMovie'
+import { Header } from './components/Header/Header'
 
 export default function App() {
 
   const [movieList, setMovieList] = useState([])
   const [featuredData, setFeaturedData] = useState(null)
+  const [blackHeader, setBlackHeader] = useState(false)
 
   useEffect(() => {
     const loadAll = async () => {
@@ -27,8 +29,26 @@ export default function App() {
     loadAll()
   }, [])
 
+  useEffect(() => {
+    const scrollListener = () => {
+      if(window.scrollY > 10) {
+        setBlackHeader(true)
+      } else {
+        setBlackHeader(false)
+      }
+    }
+
+    window.addEventListener('scroll', scrollListener)
+
+    return () => {
+      window.removeEventListener('scroll', scrollListener)
+    }
+  })
+
   return (
     <div className='page'>
+
+      <Header black={blackHeader}/>
 
       {featuredData && 
         <FeaturedMovie item={featuredData}/>
@@ -39,6 +59,13 @@ export default function App() {
           <MovieRow title={item.title} items={item.items} key={key}/>
         ))}
       </section>
+
+      <footer>
+        Feito pelo dev Geovanne Callegaro <br />
+        Direitos de Imagem para Netflix <br />
+        Dados do site Themoviedb.org
+      </footer>
+
     </div>
   )
 }
