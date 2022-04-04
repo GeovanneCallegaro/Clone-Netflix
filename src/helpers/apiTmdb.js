@@ -1,6 +1,6 @@
 const API_KEY = '63d26ba416f359cdacc0fe472fb8e85a'
 
-const API_BASE = 'http://api.themoviedb.org/3/'
+const API_BASE = 'https://api.themoviedb.org/3'
 
 // Consultas que vão ser feitas a API:
 /*
