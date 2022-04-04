@@ -10,6 +10,7 @@ body {
     background-color: #111;
     color: #fff;
     font-family: 'Roboto', sans-serif;
+    
 }
 
 .lists {
@@ -19,4 +20,26 @@ body {
 footer {
     margin: 50px 0;
     text-align: center;
+}
+
+.loading-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading {
+    border: 6px solid #a30000c5;
+    border-top-color: #fd0000d8;
+    height: 50px;
+    width: 50px;
+    animation: is-rotating 1s infinite;
+    border-radius: 50%;
+}
+
+@keyframes is-rotating {
+    to {
+        transform: rotate(1turn);
+    }
 }

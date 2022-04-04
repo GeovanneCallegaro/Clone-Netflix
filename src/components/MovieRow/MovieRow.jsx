@@ -3,7 +3,7 @@ import {MdKeyboardArrowLeft, MdKeyboardArrowRight} from 'react-icons/md'
 import { useState } from 'react'
 
 export const MovieRow = ({title, items}) => {
-    const [scrollX, setScrollX] = useState(-400)
+    const [scrollX, setScrollX] = useState(0)
 
     const handleLeftArrow = () => {
         let valueScroll = scrollX + Math.round(window.innerWidth / 2);

@@ -60,11 +60,18 @@ export default function App() {
         ))}
       </section>
 
+      {movieList.length <= 0 &&
+        <div className='loading-container'>
+          <div className='loading'></div>
+        </div>
+      }
+      
       <footer>
         Feito pelo dev Geovanne Callegaro <br />
         Direitos de Imagem para Netflix <br />
         Dados do site Themoviedb.org
       </footer>
+
 
     </div>
   )
